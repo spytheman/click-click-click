@@ -1,0 +1,36 @@
+<head>
+  <title>click_click_click</title>
+</head>
+
+<body>
+  <header>
+    <h2>It's a click off!</h2>
+    <p> CHOOSE A TEAM, FIRST TO 50 CLICKS WINS.</p>
+  </header>
+  {{> scoreboard}}
+</body>
+
+
+<template name="scoreboard">
+  <div class="scoreboard">
+    {{#each teams}}
+      {{> team}}
+    {{/each}}
+  </div>
+</template>
+
+
+<template name="team">
+  <section class='{{name}} inc'>
+    <div class="score">{{score}}</div>
+
+    {{#unless winner}}
+    <div class="name">Team {{name}}</div>
+    {{/unless}}
+
+    {{#if winner}}
+      <div class="badge"><span>{{name}} wins!</span></div>
+    {{/if}}
+
+  </section>
+</template>
